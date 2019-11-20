@@ -1,0 +1,36 @@
+The idea: Morse code translator
+	- The user clicks in a morse code sequence
+	- The sequence is translated into English
+	- The user can choose to play the audio version of the text
+
+Functionality included:
+	- A GUI component
+	- Multiple functions
+	- Unit Testing
+	- Exception handling
+	- User input and input validation
+	- Output
+	- A class
+
+Nine additional bits of functionality included:
+	1. Decision structure (if / elif / else)
+	2. Looping structure
+	3. Inner function
+	4. Collection (List / tuple)
+	5. Collection (Set / dictionary)
+	6. Case-switch statement
+	7. Python module / package
+	8. Object Oriented Functionality including constructors/methods/objects
+	9. Object Oriented Program inheritance/polymorphism including base-derived class
+
+Project proposal:
+
+For the final project, I will create a Morse code translator. The user will have a single button in the GUI which they can use to 
+input a sequence of dots, slashes, and spaces in order to construct a string. The user can choose to have the audio version of the
+string played.
+
+The list of expectations:
+1. GUI with text box for string, button for inputting code, and button for playing audio
+2. Give the user ability to input Morse code
+3. Translate the Morse code into a string
+4. [Optional but possible] give the user the ability to play an audio of the string
