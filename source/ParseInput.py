@@ -14,6 +14,17 @@ from NotValidMorse import NotValidMorse
 
 class ParseInput:
 
+
+    """
+    :param mb: MorseButton object for use
+
+    constructs a ParseInput object with an associated MorseButton
+    object
+    """
+    def __init__(self, mb):
+        self.mb = mb
+
+
     """
     :param str: the string containing . and - which is converted to
     characters
@@ -60,4 +71,5 @@ class ParseInput:
         try:
             return list(MORSE_CODE_DICT.keys())[list(MORSE_CODE_DICT.values()).index(str)]
         except ValueError as x:
+            self.mb.morse_string = self.mb.morse_string[:-1]
             raise NotValidMorse("That is not valid morse code") from None

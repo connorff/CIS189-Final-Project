@@ -24,8 +24,8 @@ class MorseButton:
 		self.pressed = False
 		self.dl = dit_length
 		self.morse_string = ""
-		self.pi = ParseInput()
-		self.space_time = time.time()
+		self.pi = ParseInput(self)
+		self.space_time = 0
 
 
 	"""
@@ -36,6 +36,8 @@ class MorseButton:
 	def button_pressed(self, event):
 		self.pressed = True
 		self.start_time = time.time()
+
+		if self.space_time == 0: self.space_time = time.time()
 
 		# if enough time has passed to add a space (2 dits)
 		if time.time() - self.space_time >= 4 * self.dl:
