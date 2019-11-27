@@ -22,12 +22,14 @@ class ParseInput:
 
     function for converting the "dits" and "dahs" to chars
     """
-    def convert(str):
+    def convert(self, str):
         char_list = str.split(" ")
         char_str = ""
 
         for char in char_list:
             char_str += self.get_char(char)
+
+        return char_str
 
 
     """
@@ -38,7 +40,7 @@ class ParseInput:
     get_char takes in a morse code pattern and
     returns the english representation of it
     """
-    def get_char(str):
+    def get_char(self, str):
         MORSE_CODE_DICT = { 'A':'.-', 'B':'-...', 
                     'C':'-.-.', 'D':'-..', 'E':'.', 
                     'F':'..-.', 'G':'--.', 'H':'....', 
