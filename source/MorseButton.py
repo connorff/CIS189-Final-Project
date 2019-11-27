@@ -9,6 +9,7 @@ Class for checking 'dits' and 'dahs' based on button hold length
 
 
 import time
+from ParseInput import ParseInput
 
 
 class MorseButton:
@@ -22,6 +23,7 @@ class MorseButton:
 		self.start_time = 0
 		self.pressed = False
 		self.dl = dit_length
+		self.morse_string = ""
 
 
 	"""

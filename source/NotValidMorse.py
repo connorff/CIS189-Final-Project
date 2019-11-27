@@ -1,0 +1,2 @@
+class NotValidMorse(Exception):
+    pass
