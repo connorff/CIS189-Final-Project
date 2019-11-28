@@ -93,3 +93,13 @@ class MorseButton:
 	def play_audio(self):
 		self.engine.say(self.pi.convert(self.morse_string))
 		self.engine.runAndWait()
+
+
+	"""
+	clears the morse_string
+	"""
+	def clear_morse(self):
+		self.morse_string = ""
+		self.space_time = 0
+
+		self.text_box.delete('1.0', tk_END)
