@@ -24,21 +24,28 @@ class ParseInput:
 
 
     """
-    :param str: the string containing . and - which is converted to
-    characters
+    :param str: the string containing . and - and w's which is converted to
+    characters and words
 
     :returns: a string of characters
 
-    function for converting the "dits" and "dahs" to chars
+    function for converting the "dits" and "dahs" to chars and words
     """
     def convert(self, str):
-        char_list = str.split(" ")
-        char_str = ""
+        # splits the string into words
+        word_list = str.split("w")
+        final_str = ""
 
-        for char in char_list:
-            char_str += self.get_char(char)
+        for word in word_list:
+            char_list = word.split(" ")
+            char_str = ""
 
-        return char_str
+            for char in char_list:
+                char_str += self.get_char(char)
+
+            final_str += char_str + " "
+
+        return final_str
 
 
     """

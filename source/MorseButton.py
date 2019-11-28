@@ -45,7 +45,8 @@ class MorseButton:
 
 		# if enough time has passed to add a space (2 dits)
 		if time.time() - self.space_time >= 2 * self.dl:
-			self.morse_string += " "
+			if self.morse_string[:-1] == "w":
+				self.morse_string += " "
 		
 		self.space_time = time.time()
 
@@ -84,7 +85,7 @@ class MorseButton:
 	adds space to the morse_string
 	"""
 	def add_space(self):
-		self.morse_string += " "
+		self.morse_string += "w"
 
 
 	"""
