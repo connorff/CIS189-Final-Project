@@ -36,6 +36,9 @@ class ParseInput:
         word_list = str.split("w")
         final_str = ""
 
+        # removes empty items from the word_list
+        word_list = list(filter(None, word_list))
+
         for word in word_list:
             char_list = word.split(" ")
             char_str = ""

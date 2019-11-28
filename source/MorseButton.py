@@ -45,7 +45,9 @@ class MorseButton:
 
 		# if enough time has passed to add a space (2 dits)
 		if time.time() - self.space_time >= 2 * self.dl:
-			if self.morse_string[:-1] == "w":
+			if self.morse_string[-1] == "w":
+				self.space_time = 0
+			else:
 				self.morse_string += " "
 		
 		self.space_time = time.time()
@@ -92,6 +94,7 @@ class MorseButton:
 	plays the audio of the morse_string
 	"""
 	def play_audio(self):
+		print(self.pi.convert(self.morse_string))
 		self.engine.say(self.pi.convert(self.morse_string))
 		self.engine.runAndWait()
 
