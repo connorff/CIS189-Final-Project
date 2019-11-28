@@ -13,8 +13,6 @@ from NotValidMorse import NotValidMorse
 
 
 class ParseInput:
-
-
     """
     :param mb: MorseButton object for use
 

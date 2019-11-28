@@ -10,6 +10,8 @@ Class for checking 'dits' and 'dahs' based on button hold length
 
 import time
 from ParseInput import ParseInput
+from tkinter import END as tk_END
+import pyttsx3
 
 
 class MorseButton:
@@ -19,13 +21,15 @@ class MorseButton:
 
 	constructs a MorseButton object
 	"""
-	def __init__(self, dit_length):
+	def __init__(self, dit_length, text_box):
 		self.start_time = 0
 		self.pressed = False
 		self.dl = dit_length
 		self.morse_string = ""
 		self.pi = ParseInput(self)
 		self.space_time = 0
+		self.text_box = text_box
+		self.engine = pyttsx3.init()
 
 
 	"""
@@ -40,9 +44,10 @@ class MorseButton:
 		if self.space_time == 0: self.space_time = time.time()
 
 		# if enough time has passed to add a space (2 dits)
-		if time.time() - self.space_time >= 4 * self.dl:
+		if time.time() - self.space_time >= 2 * self.dl:
 			self.morse_string += " "
-			self.space_time = time.time()
+		
+		self.space_time = time.time()
 
 
 	"""
@@ -71,4 +76,20 @@ class MorseButton:
 		else:
 			self.morse_string += "-"
 
-		print(self.pi.convert(self.morse_string))
+		self.text_box.delete('1.0', tk_END)
+		self.text_box.insert(tk_END, self.pi.convert(self.morse_string))
+
+
+	"""
+	adds space to the morse_string
+	"""
+	def add_space(self):
+		self.morse_string += " "
+
+
+	"""
+	plays the audio of the morse_string
+	"""
+	def play_audio(self):
+		self.engine.say(self.pi.convert(self.morse_string))
+		self.engine.runAndWait()
