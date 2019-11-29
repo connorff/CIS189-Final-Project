@@ -75,12 +75,26 @@ class MorseButton:
 	"""
 	def get_symbol(self, hold_time):
 		if hold_time <= self.dl:
-			self.morse_string += "."
+			self.add_dit()
 		else:
-			self.morse_string += "-"
+			self.add_dah()
 
 		self.text_box.delete('1.0', tk_END)
 		self.text_box.insert(tk_END, self.pi.convert(self.morse_string))
+
+
+	"""
+	adds a dit to the morse string
+	"""
+	def add_dit(self):
+		self.morse_string += "."
+
+
+	"""
+	adds a dah to the morse string
+	"""
+	def add_dah(self):
+		self.morse_string += "-"
 
 
 	"""
