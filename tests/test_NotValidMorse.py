@@ -7,6 +7,7 @@ import time
 
 from source import MorseButton
 from source import ParseInput
+from source import NotValidMorse
 
 
 class UnitTest(unittest.TestCase):
@@ -22,16 +23,13 @@ class UnitTest(unittest.TestCase):
 		del self.mb
 		del self.pi
 
-	def test_convert_no_spaces(self):
-		self.assertEqual(self.pi.convert(".... . .-.. .-.. ---"), "HELLO ")
-		self.assertEqual(self.pi.convert("- . ... -"), "TEST ")
+	def test_get_char_raises(self):
+		with self.assertRaises(NotValidMorse.NotValidMorse):
+			self.pi.get_char(".......")
 
-	def test_convert_with_spaces(self):
-		self.assertEqual(self.pi.convert(".... . .-.. .-.. ---w- . ... -"), "HELLO TEST ")
-
-	def test_get_char(self):
-		self.assertEqual(self.pi.get_char("-.--"), "Y")
-		self.assertEqual(self.pi.get_char("---"), "O")
+	def test_convert_raises(self):
+		with self.assertRaises(NotValidMorse.NotValidMorse):
+			self.pi.get_char("--- ... ------")
 
 if __name__ == "__main__":
 	unittest.main()

@@ -1,7 +1,7 @@
 """
 
 Author: Connor Fogarty
-Last Modified: November 27th, 2019
+Last Modified: November 29th, 2019
 
 Class for parsing the "dits" and "dahs" inputted by the user and
 converting them to a string of characters

@@ -1,7 +1,7 @@
 """
 
 Author: Connor Fogarty
-Last Modified: November 19th, 2019
+Last Modified: November 29th, 2019
 
 Class for checking 'dits' and 'dahs' based on button hold length
 
