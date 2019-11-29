@@ -8,8 +8,11 @@ converting them to a string of characters
 
 """
 
-
-from NotValidMorse import NotValidMorse
+try:
+	from NotValidMorse import NotValidMorse
+except ModuleNotFoundError:
+	from source import NotValidMorse
+	NotValidMorse = NotValidMorse.NotValidMorse
 
 
 class ParseInput:

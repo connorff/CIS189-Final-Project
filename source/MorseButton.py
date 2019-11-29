@@ -8,8 +8,13 @@ Class for checking 'dits' and 'dahs' based on button hold length
 """
 
 
+try:
+	from ParseInput import ParseInput
+except ModuleNotFoundError:
+	from source import ParseInput
+	ParseInput = ParseInput.ParseInput
+
 import time
-from ParseInput import ParseInput
 from tkinter import END as tk_END
 import pyttsx3
 
