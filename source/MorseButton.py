@@ -108,9 +108,10 @@ class MorseButton:
 	plays the audio of the morse_string
 	"""
 	def play_audio(self):
-		print(self.pi.convert(self.morse_string))
-		self.engine.say(self.pi.convert(self.morse_string))
-		self.engine.runAndWait()
+		# avoids a segmentation fault
+		if not self.morse_string == "":
+			self.engine.say(self.pi.convert(self.morse_string))
+			self.engine.runAndWait()
 
 
 	"""
